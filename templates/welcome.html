@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h2>Welcome to my CS50x's Final Project!</h2>
+    <div style="flex-grow: 1; margin: 2rem 0rem; display: flex; justify-content: space-evenly">
+        <div class="card" style="width: 18rem;">
+            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQH5s8oVXgSBKA/profile-displayphoto-shrink_400_400/0/1591122651064?e=1614816000&amp;v=beta&amp;t=pDh32d3fnLiCQ0QLKDtsX462lYaA8NSLTt6sjds2T-g" class="card-img-top" alt="Profile image">
+            <div class="card-body text-center">
+                <h5 class="card-title">João Vitor Sanches</h5>
+                <p class="card-text">Studing Computer Science with CS50x</p>
+                <div style="display: flex; align-items: center; justify-content: space-around; padding: 0% 25%">
+                    <p class="card-text" style="margin-bottom: 0rem">More in:</p>
+                    <a style="font-size: 24pt" href="https://github.com/Jaonolo"><i class="socials fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-card card" style="width: 28rem;">
+            <h4 style="margin-top: 2rem">You may now:</h4>
+            <a class="btn btn-primary welcome_btn" style="color: white" href="/register">Register</a>
+            <h4>Or</h4>
+            <a class="btn btn-primary welcome_btn" style="color: white" href="/login">Log In</a>
+            <p style="max-width: 70%">
+                Please remember that this web-application does NOT use the most modern ways for password storage.
+                Be conscient about this and DON'T use the password for any of your other accounts
+            </p>
+        </div>
+    </div>
+{% endblock %}

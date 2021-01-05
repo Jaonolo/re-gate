@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <script>
+        list = []
+
+        function myFunction2()
+        {
+            var y = document.getElementById("teste");
+            var z = document.getElementById("list");
+            var tag = document.createElement("td");
+            var tag2 = document.createElement("tr");
+            var text = document.createTextNode(y.value);
+
+            tag.appendChild(text);
+            tag2.appendChild(tag);
+            z.appendChild(tag2);
+            list.push(y.value);
+        }
+
+        function post()
+        {
+            message = JSON.stringify(list)
+            $.post( "/create", {
+                list: message,
+            })
+            .done(function(value)
+            {
+                if (value.redirect)
+                {
+                    console.log(value.redirect);
+                    window.location.href = value.redirect;
+                }
+            });
+        }
+    </script>
+    <h2 style="margin-bottom: 1rem">Add a new gate:</h2>
+    <div style="display: flex; justify-content: center; max-width: 1300px; align-items: center; height: 100%">
+        <div class="card text-center" style="width: 40%;">
+            <div class="card-body">
+                <h5 class="card-title">Add from list of links</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>URL:</th>
+                                <th><button class="btn btn-primary" onClick="post()">Save</button></th>
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                            <tr id="add">
+                                <td>
+                                    <input id="teste" type="text"></input>
+                                </td>
+                                <td>
+                                    <a onClick="myFunction2()"><i style="color: green" class="fas fa-plus"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

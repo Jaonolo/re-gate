@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block main %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Gate ID:</th>
+                        <th>Created:</th>
+                        <th>Status:</th>
+                        <th><a class="btn btn-success" href="/create">add</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gate in gates %}
+                        <tr id = "add">
+                            <td>{{ gate['id'] }}</td>
+                            <td>{{ gate['timestamp'] }}</td>
+                            <td>{{ gate['status'] }}</td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    {% if length == 0 %}
+                        <tr>
+                            <td colspan="4" class="tb_placeholder" style="padding: 10rem 0rem; color: #555">There's nothing here yet :(</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+{% endblock %}
